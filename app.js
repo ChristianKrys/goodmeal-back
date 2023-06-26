@@ -40,11 +40,15 @@ app.get("/",(req,res)=>{
 
 const lanceServeur = ()=>{
     const Port_Serveur = process.env.ENV_Port_Serveur;
-    const IP_Serveur = process.env.ENV_IP_Serveur;
-    
-    app.listen(Port_Serveur,IP_Serveur,(err)=>{
+    //const IP_Serveur = process.env.ENV_IP_Serveur;
+
+    app.listen(Port_Serveur,(err)=>{
         console.log("Serveur en écoute au port "+Port_Serveur);
     })
+    
+/*     app.listen(Port_Serveur,IP_Serveur,(err)=>{
+        console.log("Serveur en écoute au port "+Port_Serveur);
+    }) */
 }
 connecter(lanceServeur);
 
