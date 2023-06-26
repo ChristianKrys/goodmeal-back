@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCUEIL</title>
+</head>
+<body>
+    <h1>Accueil</h1>
+
+    
+    <form action="http://localhost:3002/goodmeal-api/v1/utilisateurs" method="post">
+        <pre>
+            Nom        <input type="text" name="nom"><br>
+            Adresse    <input type="text" name="adresse"><br>
+            Telephone  <input type="text" name="telephone"><br>
+                       <input type="submit" value="Envoyer">
+        </pre>
+    </form>
+    <br><br>
+    <form action='http://localhost:3002/goodmeal-api/v1/utilisateurs/648ad479f426bb25102211fb' method="post">
+        <pre>
+            Nom        <input type="text" name="nom"><br>
+            Adresse    <input type="text" name="adresse"><br>
+            Telephone  <input type="text" name="telephone"><br>
+                       <input type="submit" value="Modifier">
+
+                       
+        </pre>
+    </form>
+
+    <input type="button" value="Soumettre" onclick="handleFetch()">
+    <input type="button" value="handleModifierPATCH" onclick="handleModifierPATCH()">
+    <script>
+        //methodFetch : GET, POST, PUT, DELETE
+        function handleFetch(){
+            let urlFetch = "http://localhost:3002/goodmeal-api/v1/utilisateurs";
+            let methodFetch = "GET";
+            (async function(){
+             await fetch(urlFetch,{
+                method : methodFetch
+                })
+                .then((response)=> response.json())
+                .then((data)=>{
+                    console.log(data);
+                    //return data;
+                })
+                .catch((err)=>{console.log(err);});
+
+            })();  
+        }
+
+
+               //methodFetch : GET, POST, PUT, PATCH, DELETE
+        function handleModifierPATCH(){
+            let urlFetch = "http://localhost:3002/goodmeal-api/v1/utilisateurs/648ad479f426bb25102211fb";
+            let methodFetch = "PATCH";
+            (async function(){
+             await fetch(urlFetch,{
+                headers : {
+                    Accept : "application/json",
+                    "Content-Type" : "application/json"
+                },
+                method : methodFetch,                
+                mode :"no-cors",
+                body : JSON.stringify({
+                    nom : "Jean De La Fontaine",
+                    adresse : "Paris France"
+                })
+                 })
+                .then((response)=>{return response.json();})
+                .then((data)=>{console.log(data);})
+                .catch((err)=>{console.log(err);});
+
+            })();  
+        }
+    </script>
+    
+</body>
+</html>
