@@ -2,11 +2,14 @@
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
 const utilisateurSchema = new Schema({    
+    nomUtilisateur : String,
     prenomUtilisateur : String,
     telephoneUtilisateur : String,
     emailUtilisateur : String,
     addresseUtilisateur : String,
     statutUtilisateur : String,  
+    login : String,
+    pwd : String, 
     typeCompteUtilisateur : {
         type : String,
         default : 'visiteur' 
@@ -24,7 +27,9 @@ const utilisateur = {
     emailUtilisateur : '',
     addresseUtilisateur : '',
     statutUtilisateur : '',  
-    typeCompteUtilisateur : 'visiteur'      
+    typeCompteUtilisateur : 'visiteur',
+    login : '',
+    pwd : ''       
 }
 
  */

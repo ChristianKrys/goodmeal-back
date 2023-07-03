@@ -10,7 +10,9 @@ const ajouterUtilisateur = async (req,res)=>{
             emailUtilisateur : req.body.emailUtilisateur,
             addresseUtilisateur : req.body.addresseUtilisateur,
             statutUtilisateur : req.body.statutUtilisateur,  
-            typeCompteUtilisateur : req.body.typeCompteUtilisateur  
+            typeCompteUtilisateur : req.body.typeCompteUtilisateur, 
+            login : req.body.login,
+            pwd : req.body.pwd
           });
 
           utilisateur.save()

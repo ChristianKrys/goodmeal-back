@@ -5,10 +5,9 @@ const {Schema} = mongoose;
 const commandeSchema = new Schema({
     tableArticle : [],
     idClient : {
-        type : Number,
-        min : 0,
+        type : String,
         require : true,
-        default : 0
+        default : "0"
     },
     statutCommande : String,
     dateCommande : String,

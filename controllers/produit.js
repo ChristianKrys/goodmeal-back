@@ -1,5 +1,6 @@
 const { Produit } = require("../models/produit")
 const { ObjectId } = require("mongodb");
+const fich = require("./chargeproduit");
 
 const ajouterProduit = async (req,res)=>{
     try {
